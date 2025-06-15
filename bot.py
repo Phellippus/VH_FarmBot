@@ -1,16 +1,4 @@
-import pyautogui
-import time
-
-import sqlite3 
-import os 
-
-inicio = time.time()
-pyautogui.FAILSAFE = True
-
-time.sleep(2)
-
-
-# Bot não infinito -no momento- farmar cobre (5 packs media)
+# Bot não infinito para farmar cobre (5 packs media)
 
 #
 # Resolução meu PC 1366x768; 
@@ -21,13 +9,24 @@ time.sleep(2)
 # Camera afastado o mais longe possível.
 #
 
+from tqdm import tqdm
+import pyautogui
+import time
+import sqlite3 
+import os 
+
+pyautogui.FAILSAFE = True
+time.sleep(2)
+
+
+# funções 
 def mouse_position(x=None, y=None):
     pyautogui.moveTo(x=x, y=y, duration=0.3)
     pyautogui.click()
     time.sleep(70) #mude para 70sec
 
 def ore(x=None, y=None, fase=None):
-    for click1 in range(9):
+    for click1 in tqdm(range(9),desc=fase, ncols=70):
         pyautogui.moveTo(x=x, y=y, duration=0.3)
         pyautogui.click()
         print(f'{fase} - Clicada número: {click1 + 1}')
@@ -48,37 +47,9 @@ def troca_ferramenta(x=None, y=None):
     pyautogui.press('i')
     time.sleep(1)
 
-#1ªminerio
-ore(x=672, y=404, fase='1ª Fase')
-troca_ferramenta(x=1157, y=304)
-
-#2ªminerio
-mouse_position(x=260, y=428)
-ore(x=633, y=406, fase='2ª Fase')
-troca_ferramenta(x=1196, y=307)
-
-#3ªminerio
-mouse_position(x=927, y=285)
-ore(x=704, y=396, fase='3ª Fase')
-troca_ferramenta(x=1239, y=308)
-
-#4ªminerio
-mouse_position(x=415, y=569)
-ore(x=653, y=424, fase='4ª Fase')
-troca_ferramenta(x=1283, y=306)
-
-# 5ª minerio
-mouse_position(x=1066, y=387)
-ore(x=732, y=407, fase='5ª Fase')
-troca_ferramenta(x=1326, y=305)
-
-# 6ªminerio
-mouse_position(x=936, y=481)
-ore(x=727, y=430, fase='6ª e última fase')
 
 
-
-
+# temporizador + database
 def tempo():
     fim = time.time()
     tempo_total = fim - inicio
@@ -91,8 +62,8 @@ def tempo():
     print(f"Início da execução: {inicio_codigo}")
     print(f"Fim da execução:    {fim_codigo}")
     print(f"Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)")
-    
-#bank data xD
+        
+    #bank data xD
     try:
         caminho = os.path.dirname(os.path.abspath(__file__))
         db = os.path.join(caminho, 'Villagers_bot.db')
@@ -125,4 +96,39 @@ def tempo():
     except sqlite3.Error as error:
         print(f"Erro: {error}")
 
-tempo()
+
+
+#execução principal
+if __name__ == "__main__":
+
+    inicio = time.time()
+
+    #1ªminerio
+    ore(x=672, y=404, fase='1ª Fase')
+    troca_ferramenta(x=1157, y=304)
+
+    #2ªminerio
+    mouse_position(x=260, y=428)
+    ore(x=633, y=406, fase='2ª Fase')
+    troca_ferramenta(x=1196, y=307)
+
+    #3ªminerio
+    mouse_position(x=927, y=285)
+    ore(x=704, y=396, fase='3ª Fase')
+    troca_ferramenta(x=1239, y=308)
+
+    #4ªminerio
+    mouse_position(x=415, y=569)
+    ore(x=653, y=424, fase='4ª Fase')
+    troca_ferramenta(x=1283, y=306)
+
+    # 5ª minerio
+    mouse_position(x=1066, y=387)
+    ore(x=732, y=407, fase='5ª Fase')
+    troca_ferramenta(x=1326, y=305)
+
+    # 6ªminerio
+    mouse_position(x=936, y=481)
+    ore(x=727, y=430, fase='6ª e última fase')
+
+    tempo()
