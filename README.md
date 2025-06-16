@@ -1,13 +1,13 @@
 # 🛠️ BOT DE MINERAÇÃO 
 Este **bot automatiza a mineração de minério de cobre** na área **Lady's Sake**. 
 ---
+## 🔄 Compatibilidade
 
-## 📸 Configuração da Câmera
+Embora o bot seja configurado para **minério de cobre**, você pode adaptá-lo para **outros itens** no jogo:
 
-> 🔍 **Referência visual obrigatória:**  
-📷 [Visualizar referência de câmera](https://snipboard.io/MDrkic.jpg)
-
-- Garanta que sua câmera esteja exatamente como na imagem acima antes de iniciar o bot.
+1. Posicione a câmera de forma semelhante à referência.
+2. Ajuste as coordenadas dos cliques conforme a localização do novo item.
+3. Teste e refine os intervalos e delays, se necessário.
 
 ---
 
@@ -17,18 +17,18 @@ Este **bot automatiza a mineração de minério de cobre** na área **Lady's Sak
 
 > ⚠️ Caso sua resolução **não seja** 1366x768:
 > - Você precisará **ajustar manualmente as coordenadas (X, Y)** usadas pelo mouse.
-> - Veja nos comentários do script quais partes precisam ser alteradas para funcionar corretamente.
+> - Veja em "Configuração do Código" quais partes precisam ser alteradas para funcionar corretamente.
 
 ---
 
-## 🔄 Compatibilidade
+## 📸 Configuração da Câmera
 
-Embora o bot seja configurado para **minério de cobre**, você pode adaptá-lo para **outros itens** no jogo:
+> 🔍 **Referência visual obrigatória:**  
+📷 [Visualizar referência de câmera](https://snipboard.io/MDrkic.jpg)
 
-1. Posicione a câmera de forma semelhante à referência.
-2. Ajuste as coordenadas dos cliques conforme a localização do novo item.
-3. Teste e refine os intervalos e delays, se necessário.
+- Garanta que sua câmera esteja exatamente como na imagem acima antes de iniciar o bot.
 
+---
 
 ## 🖥️ Tecnologias Utilizadas
 
