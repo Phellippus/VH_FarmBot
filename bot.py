@@ -12,10 +12,9 @@
 from tqdm import tqdm
 import pyautogui
 import time
-import sqlite3 
-import os 
+import pyodbc
 
-pyautogui.FAILSAFE = True
+pyautogui.FAILSAFE = True #Serve para parar código, coloque o mouse no canto superior esquerdo (x=0,y=0)
 time.sleep(2)
 
 
@@ -50,7 +49,7 @@ def troca_ferramenta(x=None, y=None):
 
 
 
-# temporizador + database
+# temporizador + database removed + trying_connecting_azure
 def tempo():
     fim = time.time()
     tempo_total = fim - inicio
@@ -64,41 +63,17 @@ def tempo():
     print(f"Fim da execução:    {fim_codigo}")
     print(f"Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)")
         
-    #bank data xD
-    try:
-        caminho = os.path.dirname(os.path.abspath(__file__))
-        db = os.path.join(caminho, 'Villagers_bot.db')
-        conecta = sqlite3.connect(db)
-        cursor = conecta.cursor()
+    
+    #
+    #Azure
+    #tentando conexão com azure
+    # pesquisa referente a: 
+    # https://azure.microsoft.com/pt-br/free/students/
+    # https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-python?view=azuresql
+    #
+   
 
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS execucoes (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                data_hora_inicio TEXT NOT NULL,
-                data_hora_fim TEXT NOT NULL,
-                tempo_execucao_segundos REAL NOT NULL
-            )
-        ''')
-
-        try:
-            cursor.execute('ALTER TABLE execucoes ADD COLUMN mineiro TEXT')
-        except sqlite3.OperationalError:
-            pass  
-
-        cursor.execute(
-            "INSERT INTO execucoes (data_hora_inicio, data_hora_fim, tempo_execucao_segundos, mineiro) VALUES (?, ?, ?, ?)",
-            (inicio_codigo, fim_codigo, round(tempo_total, 2), "") 
-        )
-
-        conecta.commit()
-        conecta.close()
-        print("Dados salvo")
-
-    except sqlite3.Error as error:
-        print(f"Erro: {error}")
-
-
-
+ 
 #execução principal
 if __name__ == "__main__":
 
@@ -128,8 +103,9 @@ if __name__ == "__main__":
     item(x=732, y=407, fase='5ª Fase')
     troca_ferramenta(x=1326, y=305)
 
-    # 6ªminerio
+    # 6ª minerio
     mouse_position(x=936, y=481)
     item(x=727, y=430, fase='6ª e última fase')
+    print(pyautogui.position())
 
-    tempo()
+    tempo() 
