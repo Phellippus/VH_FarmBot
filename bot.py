@@ -12,7 +12,9 @@
 from tqdm import tqdm
 import pyautogui
 import time
+
 import pyodbc
+
 
 pyautogui.FAILSAFE = True #Serve para parar código, coloque o mouse no canto superior esquerdo (x=0,y=0)
 time.sleep(2)
@@ -67,12 +69,14 @@ def tempo():
     #
     #Azure
     #tentando conexão com azure
-    # pesquisa referente a: 
-    # https://azure.microsoft.com/pt-br/free/students/
+    # pesquisa referente ao azure: 
+    # https://learn.microsoft.com/en-us/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development?view=sql-server-ver17&tabs=windows
     # https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-python?view=azuresql
     #
    
-
+# driver = '{ODBC Driver 17 for SQL Server}'
+# server = 'botvillagersdatabase.database.windows.net'
+# database = 'results_bot.db'
  
 #execução principal
 if __name__ == "__main__":
@@ -98,12 +102,12 @@ if __name__ == "__main__":
     item(x=653, y=424, fase='4ª Fase')
     troca_ferramenta(x=1283, y=306)
 
-    # 5ª minerio
+    #5ª minerio
     mouse_position(x=1066, y=387)
     item(x=732, y=407, fase='5ª Fase')
     troca_ferramenta(x=1326, y=305)
 
-    # 6ª minerio
+    #6ª minerio
     mouse_position(x=936, y=481)
     item(x=727, y=430, fase='6ª e última fase')
     print(pyautogui.position())
