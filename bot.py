@@ -12,12 +12,14 @@
 from tqdm import tqdm
 import pyautogui
 import time
-
 import pyodbc
 
 
 pyautogui.FAILSAFE = True #Serve para parar código, coloque o mouse no canto superior esquerdo (x=0,y=0)
 time.sleep(2)
+
+#contadores
+qtd_reparador = 0
 
 
 # funções 
@@ -27,7 +29,18 @@ def mouse_position(x=None, y=None):
     time.sleep(70) #mude para 70sec
 
 def item(x=None, y=None, fase=None):
+    global qtd_reparador #modificar 0 dos contadores
+
     for click1 in tqdm(range(9),desc=fase, ncols=70):
+        try:
+            reparador = pyautogui.locateCenterOnScreen('image/reparador.png', confidence=0.8)
+            if reparador:
+                pyautogui.moveTo(reparador, duration=0.5)
+                pyautogui.click()
+                qtd_reparador += 1
+                time.sleep(1)
+        except Exception as erro:
+            print('teste não encontrado')
         pyautogui.moveTo(x=x, y=y, duration=0.3)
         pyautogui.click()
         print(f'{fase} - Clicada número: {click1 + 1}')
@@ -51,16 +64,18 @@ def troca_ferramenta(x=None, y=None):
 
 
 
-# temporizador + database removed + trying_connecting_azure
+# temporizador + azure
 def tempo():
     fim = time.time()
     tempo_total = fim - inicio
 
     inicio_codigo = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(inicio))
     fim_codigo = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(fim))
-    tempo_minutos = tempo_total / 60
 
-    print('----------RELATORIO DO TEMPO----------')
+    tempo_minutos = tempo_total / 60
+    pickaxe_concertado = qtd_reparador // 10
+
+    print('----------RELATORIO----------')
     print(f"Início da execução: {inicio_codigo}")
     print(f"Fim da execução:    {fim_codigo}")
     print(f"Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)")
@@ -72,7 +87,7 @@ def tempo():
     # pesquisa referente ao azure: 
     # https://learn.microsoft.com/en-us/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development?view=sql-server-ver17&tabs=windows
     # https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-python?view=azuresql
-    #
+    
    
 # driver = '{ODBC Driver 17 for SQL Server}'
 # server = 'botvillagersdatabase.database.windows.net'
