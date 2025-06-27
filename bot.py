@@ -26,7 +26,7 @@ qtd_reparador = 0
 def mouse_position(x=None, y=None):
     pyautogui.moveTo(x=x, y=y, duration=0.3)
     pyautogui.click()
-    time.sleep(70) #mude para 70sec
+    time.sleep(70)
 
 def item(x=None, y=None, fase=None):
     global qtd_reparador #modificar 0 dos contadores
@@ -40,7 +40,7 @@ def item(x=None, y=None, fase=None):
                 qtd_reparador += 1
                 time.sleep(1)
         except Exception as erro:
-            print('teste não encontrado')
+            print('Reparador não encontrado')
         pyautogui.moveTo(x=x, y=y, duration=0.3)
         pyautogui.click()
         print(f'{fase} - Clicada número: {click1 + 1}')
@@ -76,9 +76,13 @@ def tempo():
     pickaxe_concertado = qtd_reparador // 10
 
     print('----------RELATORIO----------')
-    print(f"Início da execução: {inicio_codigo}")
+    
+    print(f"---- \n Início da execução: {inicio_codigo}")
     print(f"Fim da execução:    {fim_codigo}")
     print(f"Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)")
+    print('-' * 10)
+    print(f'{qtd_reparador} reparadores encontrados')
+    print(f'{pickaxe_concertado} picaretas concertadas')
         
     
     #
@@ -100,7 +104,7 @@ if __name__ == "__main__":
 
     #1ªminerio
     item(x=672, y=404, fase='1ª Fase')
-    troca_ferramenta(x=1157, y=304)
+    #troca_ferramenta(x=1157, y=304)
 
     #2ªminerio
     mouse_position(x=260, y=428)
