@@ -77,10 +77,10 @@ def tempo():
 
     print('----------RELATORIO----------')
     
-    print(f"---- \n Início da execução: {inicio_codigo}")
+    print(f" Início da execução: {inicio_codigo}")
     print(f"Fim da execução:    {fim_codigo}")
     print(f"Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)")
-    print('-' * 10)
+    print('-' * 15)
     print(f'{qtd_reparador} reparadores encontrados')
     print(f'{pickaxe_concertado} picaretas concertadas')
         
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     #1ªminerio
     item(x=672, y=404, fase='1ª Fase')
-    #troca_ferramenta(x=1157, y=304)
+    troca_ferramenta(x=1157, y=304)
 
     #2ªminerio
     mouse_position(x=260, y=428)
