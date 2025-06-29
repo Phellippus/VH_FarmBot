@@ -2,6 +2,7 @@
 
 import time
 import pyautogui
+from tqdm import tqdm
 
 time.sleep(2)
 
@@ -29,7 +30,15 @@ def localizar():
 
 
 #ativar funções (somente tirar o '#' para ativar)
-localizar()
+# localizar()
 #forjar()
 #posição_mouse()
 
+
+
+
+#adicionar tqdm no time.sleep
+#finalizar database azure do bot.py e rodar algumas vezes
+#fazer usar ML pra fazer previsão do tempo total economizado e mostrar oq da pra fazer neste tempo
+#fazer um relatorio com análise de dados (tratatamento de dados com pandas etc)
+# projeto finalizado
