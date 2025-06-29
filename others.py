@@ -1,4 +1,4 @@
-#Para testes
+#Para testes de código
 
 import time
 import pyautogui
@@ -31,9 +31,12 @@ def localizar():
 
 #ativar funções (somente tirar o '#' para ativar)
 # localizar()
-#forjar()
+# forjar()
 #posição_mouse()
 
+
+# print(pyautogui.size())
+# print(pyautogui.onScreen())
 
 
 
@@ -42,3 +45,18 @@ def localizar():
 #fazer usar ML pra fazer previsão do tempo total economizado e mostrar oq da pra fazer neste tempo
 #fazer um relatorio com análise de dados (tratatamento de dados com pandas etc)
 # projeto finalizado
+
+
+
+
+
+
+localizacao = pyautogui.locateOnScreen('chrome.png', confidence=0.8)
+
+if localizacao:
+    centro = pyautogui.center(localizacao)
+
+    pyautogui.moveTo(centro.x, centro.y, duration=0.5)
+
+else:
+    print('não encontrado')
