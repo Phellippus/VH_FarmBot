@@ -69,29 +69,35 @@ def tempo():
     fim = time.time()
     tempo_total = fim - inicio
 
-    inicio_codigo = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(inicio))
-    fim_codigo = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(fim))
+    inicio_codigo = time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(inicio))
+    fim_codigo = time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(fim))
 
     tempo_minutos = tempo_total / 60
     pickaxe_concertado = qtd_reparador // 10
-
-    print('----------RELATORIO----------')
     
-    print(f" Início da execução: {inicio_codigo}")
-    print(f"Fim da execução:    {fim_codigo}")
-    print(f"Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)")
-    print('-' * 15)
-    print(f'{qtd_reparador} reparadores encontrados')
-    print(f'{pickaxe_concertado} picaretas concertadas')
+    #irá aparecer um aviso do relatório com as opções salvar e não salvar (others.py tem exemplo em def relatorio)
+    relatorio = pyautogui.confirm(text=f'''
+                            RELATORIO\n
+                            Início da execução: {inicio_codigo}
+                            Fim da execução:    {fim_codigo}
+                            Duração total:      {tempo_total:.2f} segundos ({tempo_minutos:.2f} minutos)
+                            {'-' * 65}
+                            {qtd_reparador} reparadores encontrados
+                            {pickaxe_concertado} picaretas concertadas
+                    '''
+                            ,title='CÓDIGO FINALIZADO', buttons=['Salvar', 'Não salvar']
+                )
+
+    if relatorio == 'Salvar':
+        pass    # facilmente colocar isso em uma planilha excel
+    else:
+        print('Não salvar')
+
         
     
     #
     #Azure
     #tentando conexão com azure
-    # pesquisa referente ao azure: 
-    # https://learn.microsoft.com/en-us/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development?view=sql-server-ver17&tabs=windows
-    # https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-python?view=azuresql
-    
    
 # driver = '{ODBC Driver 17 for SQL Server}'
 # server = 'botvillagersdatabase.database.windows.net'
@@ -103,32 +109,47 @@ if __name__ == "__main__":
     inicio = time.time()
 
     #1ªminerio
-    item(x=672, y=404, fase='1ª Fase')
-    troca_ferramenta(x=1157, y=304)
+    # item(x=672, y=404, fase='1ª Fase')
+    # troca_ferramenta(x=1157, y=304)
 
     #2ªminerio
-    mouse_position(x=260, y=428)
-    item(x=633, y=406, fase='2ª Fase')
-    troca_ferramenta(x=1196, y=307)
+    # mouse_position(x=260, y=428)
+    # item(x=633, y=406, fase='2ª Fase')
+    # troca_ferramenta(x=1196, y=307)
 
     #3ªminerio
-    mouse_position(x=927, y=285)
-    item(x=704, y=396, fase='3ª Fase')
-    troca_ferramenta(x=1239, y=308)
+    # mouse_position(x=927, y=285)
+    # item(x=704, y=396, fase='3ª Fase')
+    # troca_ferramenta(x=1239, y=308)
 
     #4ªminerio
-    mouse_position(x=415, y=569)
-    item(x=653, y=424, fase='4ª Fase')
-    troca_ferramenta(x=1283, y=306)
+    # mouse_position(x=415, y=569)
+    # item(x=653, y=424, fase='4ª Fase')
+    # troca_ferramenta(x=1283, y=306)
 
     #5ª minerio
-    mouse_position(x=1066, y=387)
-    item(x=732, y=407, fase='5ª Fase')
-    troca_ferramenta(x=1326, y=305)
+    # mouse_position(x=1066, y=387)
+    # item(x=732, y=407, fase='5ª Fase')
+    # troca_ferramenta(x=1326, y=305)
 
     #6ª minerio
-    mouse_position(x=936, y=481)
-    item(x=727, y=430, fase='6ª e última fase')
+    # mouse_position(x=936, y=481)
+    # item(x=727, y=430, fase='6ª e última fase')
+    time.sleep(5)
     print(pyautogui.position())
 
     tempo() 
+
+
+
+
+
+
+# pesquisas #
+#tqdm documents
+# https://tqdm.github.io/docs/tqdm/
+
+#azure
+# https://learn.microsoft.com/en-us/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development?view=sql-server-ver17&tabs=windows
+# https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-python?view=azuresql
+    

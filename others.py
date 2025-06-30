@@ -28,11 +28,23 @@ def localizar():
     except Exception as erro:
         print('teste não encontrado')
 
+#novo relatório temporário
+def relatorio():
+    teste = pyautogui.confirm(text='Código', title='Relatório', buttons=['Salvar', 'Não salvar'])
 
-#ativar funções (somente tirar o '#' para ativar)
+    if teste == 'Salvar':
+        print('Salvo')
+    else:
+        print('Não salvar')
+        
+
+# funções (somente tirar o '#' para ativar)
+#
 # localizar()
 # forjar()
-#posição_mouse()
+# posição_mouse()
+# relatorio()
+
 
 
 # print(pyautogui.size())
@@ -51,12 +63,19 @@ def localizar():
 
 
 
-localizacao = pyautogui.locateOnScreen('chrome.png', confidence=0.8)
+# localizacao = pyautogui.locateOnScreen('chrome.png', confidence=0.8)
+# print(localizacao)
 
-if localizacao:
-    centro = pyautogui.center(localizacao)
+# if localizacao:
+#     centro = pyautogui.center(localizacao)
 
-    pyautogui.moveTo(centro.x, centro.y, duration=0.5)
+#     pyautogui.moveTo(centro.x, centro.y, duration=0.5)
+#     time.sleep(0.5)
+#     print(pyautogui.position())
 
-else:
-    print('não encontrado')
+# else:
+#     print('não encontrado')
+
+
+
+
