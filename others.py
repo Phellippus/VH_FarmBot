@@ -1,21 +1,25 @@
 #Para testes de código
 
-import time
+from time import sleep
 import pyautogui
 from tqdm import tqdm
 
-time.sleep(2)
+sleep(2)
+
+
 
 # mouse posição atual (2 segundos após executar)
 def posição_mouse():
     print(pyautogui.position())
 
-#forjar material (2 segundos após executar)
-def forjar():
+#craftar material (2 segundos após executar)
+def craft():
     while True:
-        pyautogui.moveTo(x=834, y=552)
+        craft = pyautogui.locateOnScreen('image/forja.png', confidence=0.8)
+        craft_centro = pyautogui.center(craft)
+        pyautogui.moveTo(craft_centro, duration=0.5)
         pyautogui.click()
-        time.sleep(63)
+        sleep(63)
 
 #encontrar algo na tela (2 segundos após executar)
 def localizar():
@@ -24,7 +28,7 @@ def localizar():
         if reparador:
             pyautogui.moveTo(reparador, duration=0.5)
             pyautogui.click()
-            time.sleep(1)
+            sleep(1)
     except Exception as erro:
         print('teste não encontrado')
 
@@ -46,9 +50,11 @@ def relatorio():
 # relatorio()
 
 
-
+# teste de tela  (somente tirar o '#' para ativar)
+#
 # print(pyautogui.size())
 # print(pyautogui.onScreen())
+# print(pyautogui.position())
 
 
 
@@ -70,7 +76,7 @@ def relatorio():
 #     centro = pyautogui.center(localizacao)
 
 #     pyautogui.moveTo(centro.x, centro.y, duration=0.5)
-#     time.sleep(0.5)
+#     sleep(0.5)
 #     print(pyautogui.position())
 
 # else:
