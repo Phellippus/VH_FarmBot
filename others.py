@@ -6,14 +6,17 @@ from tqdm import tqdm
 
 sleep(2)
 
-
+craft = pyautogui.locateOnScreen('image/forja.png', confidence=0.8)
+print(craft)
+craft_centro = pyautogui.center(craft)
+pyautogui.moveTo(craft_centro, duration=0.5)
 
 # mouse posição atual (2 segundos após executar)
 def posição_mouse():
     print(pyautogui.position())
 
-#craftar material (2 segundos após executar)
-def craft():
+#forjar material (2 segundos após executar)
+def forjar():
     while True:
         craft = pyautogui.locateOnScreen('image/forja.png', confidence=0.8)
         craft_centro = pyautogui.center(craft)
