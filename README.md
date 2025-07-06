@@ -109,4 +109,12 @@ Ele não deve ser utilizado para:
 ⚠️ Use com responsabilidade e ética.
 
 
+## 📄 Relatório de Uso de Inteligência Artificial
+
+Este projeto utilizou A.I. como apoio técnico em alguns pontos.  
+Para saber mais sobre o que foi feito com A.I., veja o relatório completo abaixo:
+
+👉 [Ver Relatório (PDF)](documentacao/Relatorio_AI_projeto_bot.pdf)
+
+
 ⚠️⚠️⚠️ Código e bot em construção...
