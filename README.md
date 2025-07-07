@@ -114,7 +114,7 @@ Ele não deve ser utilizado para:
 Este projeto utilizou A.I. como apoio técnico em alguns pontos.  
 Para saber mais sobre o que foi feito com A.I., veja o relatório completo abaixo:
 
-👉 [Ver Relatório (PDF)](documentacao/Relatorio_AI_projeto_bot.pdf)
+👉 [Ver Relatório (PDF)](E:\repositorios\Relatorio_AI_projeto_bot.pdf)
 
 
 ⚠️⚠️⚠️ Código e bot em construção...
