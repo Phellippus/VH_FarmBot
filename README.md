@@ -112,10 +112,9 @@ Ele não deve ser utilizado para:
 ## 📄 Relatórios do Projeto
 Este projeto utiliza inteligência artificial como apoio técnico em diversas etapas do desenvolvimento do bot. A IA foi aplicada tanto na geração de código quanto na modelagem da automação. Além disso, o progresso da automação de mineração, suas capacidades e limitações são documentados de forma contínua.
 
-👉 [Ver Relatório do Código (PDF)](documentacao/Relatorio_BOT_Mineracao.pdf)
+👉 [Ver Relatório do Código (PDF)](documentacao/Relatorio_Bot_Mineracao.pdf)
 
 👉 [Uso de A.I no Código (PDF)](documentacao/Relatorio_AI_projeto_bot.pdf)
-
 
 
 ⚠️⚠️⚠️ Código e bot em construção...
