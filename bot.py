@@ -88,8 +88,9 @@ def tempo():
                             ,title='CÓDIGO FINALIZADO', buttons=['Salvar', 'Não salvar']
                 )
 
+    # futuramente caso desejar salvar .xlsx ou em .csv ou outras possibilidades.
     if relatorio == 'Salvar':
-        pass    # facilmente colocar isso em uma planilha excel
+        pass    
     else:
         print('Não salvar')
 
@@ -109,32 +110,32 @@ if __name__ == "__main__":
     inicio = time.time()
 
     #1ªminerio
-    # item(x=672, y=404, fase='1ª Fase')
-    # troca_ferramenta(x=1157, y=304)
+    item(x=672, y=404, fase='1ª Fase')
+    troca_ferramenta(x=1157, y=304)
 
     #2ªminerio
-    # mouse_position(x=260, y=428)
-    # item(x=633, y=406, fase='2ª Fase')
-    # troca_ferramenta(x=1196, y=307)
+    mouse_position(x=260, y=428)
+    item(x=633, y=406, fase='2ª Fase')
+    troca_ferramenta(x=1196, y=307)
 
     #3ªminerio
-    # mouse_position(x=927, y=285)
-    # item(x=704, y=396, fase='3ª Fase')
-    # troca_ferramenta(x=1239, y=308)
+    mouse_position(x=927, y=285)
+    item(x=704, y=396, fase='3ª Fase')
+    troca_ferramenta(x=1239, y=308)
 
     #4ªminerio
-    # mouse_position(x=415, y=569)
-    # item(x=653, y=424, fase='4ª Fase')
-    # troca_ferramenta(x=1283, y=306)
+    mouse_position(x=415, y=569)
+    item(x=653, y=424, fase='4ª Fase')
+    troca_ferramenta(x=1283, y=306)
 
     #5ª minerio
-    # mouse_position(x=1066, y=387)
-    # item(x=732, y=407, fase='5ª Fase')
-    # troca_ferramenta(x=1326, y=305)
+    mouse_position(x=1066, y=387)
+    item(x=732, y=407, fase='5ª Fase')
+    troca_ferramenta(x=1326, y=305)
 
     #6ª minerio
-    # mouse_position(x=936, y=481)
-    # item(x=727, y=430, fase='6ª e última fase')
+    mouse_position(x=936, y=481)
+    item(x=727, y=430, fase='6ª e última fase')
     time.sleep(5)
     print(pyautogui.position())
 
