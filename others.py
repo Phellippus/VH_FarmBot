@@ -1,6 +1,7 @@
 #Para testes de código
 
 from time import sleep
+import time
 import pyautogui
 from tqdm import tqdm
 
@@ -61,7 +62,7 @@ def relatorio():
 
 
 
-#adicionar tqdm no time.sleep
+ #adicionar tqdm no time.sleep  ✅
 #finalizar database azure do bot.py e rodar algumas vezes
 #fazer usar ML pra fazer previsão do tempo total economizado e mostrar oq da pra fazer neste tempo
 #fazer um relatorio com análise de dados (tratatamento de dados com pandas etc)
@@ -88,6 +89,19 @@ def relatorio():
 
 
 
-while True:
-    pyautogui.click()
-    sleep(0.5)
+
+
+
+
+
+
+
+
+
+#adicionar tqdm no time.sleep test
+# total = 10
+# teste = 2
+# for i in tqdm (range(total), dynamic_ncols=True, desc='Time.sleep: '): 
+#      sleep(teste)
+
+
