@@ -20,7 +20,13 @@ time.sleep(2)
 
 #contadores
 qtd_reparador = 0
+sleep_tqdm = 65 # tempo para rodar
+controlador_sleep = 1 # controlar por quanto tempo cada barra do tqdm vai demorar
 
+#adicionar tqdm no time.sleep
+def sleep_com_barra():
+    for i in tqdm(range(sleep_tqdm), desc='Restante...', dynamic_ncols=True):
+        time.sleep(controlador_sleep)
 
 # funções 
 def mouse_position(x=None, y=None):
@@ -31,7 +37,7 @@ def mouse_position(x=None, y=None):
 def item(x=None, y=None, fase=None):
     global qtd_reparador #modificar 0 dos contadores
 
-    for click1 in tqdm(range(9),desc=fase, ncols=70):
+    for click1 in range(9):
         try:
             reparador = pyautogui.locateCenterOnScreen('image/reparador.png', confidence=0.8)
             if reparador:
@@ -41,26 +47,31 @@ def item(x=None, y=None, fase=None):
                 time.sleep(1)
         except Exception as erro:
             print('Reparador não encontrado')
+
         pyautogui.moveTo(x=x, y=y, duration=0.3)
         pyautogui.click()
         print(f'{fase} - Clicada número: {click1 + 1}')
-        time.sleep(65)
+
+        sleep_com_barra() #tqdm de 65 segundos com sleep
+        
         if click1 == 8:
             print(f'{fase} - Clicada número: {click1}')
             print(f'---------- {fase} Concluída! Indo para Próxima fase! ----------')      
 
 def troca_ferramenta(x=None, y=None):
-    time.sleep(1)
-    pyautogui.press('i')
-    time.sleep(1)
-    pyautogui.moveTo(x=1203, y=211, duration=0.3)
+    def pausa(): time.sleep(1)
+    pausa()
+    pyautogui.press('i') #botão do inventario
+    pausa()
+    pyautogui.moveTo(x=1203, y=211, duration=0.3) #botão do 3ª slot
     pyautogui.click()
-    time.sleep(1)
-    pyautogui.moveTo(x=x, y=y, duration=0.3)
+    pausa()
+    pyautogui.moveTo(x=x, y=y, duration=0.3) #serve para próxima ferramenta
     pyautogui.click(button='left', clicks=2, interval=0.3)
-    time.sleep(1)
-    pyautogui.press('i')
-    time.sleep(1)
+    pausa()
+    pyautogui.press('i') #fecha inventario
+    pausa()
+
 
 
 
