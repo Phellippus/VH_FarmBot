@@ -8,11 +8,10 @@
 # Camera afastado o mais longe possível.
 #                     Código e bot em construção...
 #
-
+from database.data import save_sqlite
 from tqdm import tqdm
 import pyautogui
 import time
-import pyodbc
 
 
 pyautogui.FAILSAFE = True #Serve para parar código, coloque o mouse no canto superior esquerdo (x=0,y=0)
@@ -75,7 +74,7 @@ def troca_ferramenta(x=None, y=None):
 
 
 
-# temporizador + azure
+# temporizador + database
 def tempo():
     fim = time.time()
     tempo_total = fim - inicio
@@ -104,16 +103,30 @@ def tempo():
         pass    
     else:
         print('Não salvar')
-
-        
     
+   
+    if relatorio == 'Salvar':
+        save_sqlite(
+            data_execucao=inicio_codigo,
+            data_fim=fim_codigo,
+            duracao_minutos=round(tempo_minutos, 2),
+            qtd_reparadores=qtd_reparador,
+            ferramentas_concertadas=pickaxe_concertado,
+            relatorio_guardar=True
+        )
+    else:
+        save_sqlite(
+            data_execucao=inicio_codigo,
+            data_fim=fim_codigo,
+            duracao_minutos=round(tempo_minutos, 2),
+            qtd_reparadores=qtd_reparador,
+            ferramentas_concertadas=pickaxe_concertado,
+            relatorio_guardar=False
+        )
     #
     #Azure
     #tentando conexão com azure
    
-# driver = '{ODBC Driver 17 for SQL Server}'
-# server = 'botvillagersdatabase.database.windows.net'
-# database = 'results_bot.db'
  
 #execução principal
 if __name__ == "__main__":
@@ -121,33 +134,33 @@ if __name__ == "__main__":
     inicio = time.time()
 
     #1ªminerio
-    item(x=672, y=404, fase='1ª Fase')
-    troca_ferramenta(x=1157, y=304)
+    # item(x=672, y=404, fase='1ª Fase')
+    # troca_ferramenta(x=1157, y=304)
 
     #2ªminerio
-    mouse_position(x=260, y=428)
-    item(x=633, y=406, fase='2ª Fase')
-    troca_ferramenta(x=1196, y=307)
+    # mouse_position(x=260, y=428)
+    # item(x=633, y=406, fase='2ª Fase')
+    # troca_ferramenta(x=1196, y=307)
 
     #3ªminerio
-    mouse_position(x=927, y=285)
-    item(x=704, y=396, fase='3ª Fase')
-    troca_ferramenta(x=1239, y=308)
+    # mouse_position(x=927, y=285)
+    # item(x=704, y=396, fase='3ª Fase')
+    # troca_ferramenta(x=1239, y=308)
 
     #4ªminerio
-    mouse_position(x=415, y=569)
-    item(x=653, y=424, fase='4ª Fase')
-    troca_ferramenta(x=1283, y=306)
+    # mouse_position(x=415, y=569)
+    # item(x=653, y=424, fase='4ª Fase')
+    # troca_ferramenta(x=1283, y=306)
 
     #5ª minerio
-    mouse_position(x=1066, y=387)
-    item(x=732, y=407, fase='5ª Fase')
-    troca_ferramenta(x=1326, y=305)
+    # mouse_position(x=1066, y=387)
+    # item(x=732, y=407, fase='5ª Fase')
+    # troca_ferramenta(x=1326, y=305)
 
     #6ª minerio
-    mouse_position(x=936, y=481)
-    item(x=727, y=430, fase='6ª e última fase')
-    time.sleep(5)
+    # mouse_position(x=936, y=481)
+    # item(x=727, y=430, fase='6ª e última fase')
+    time.sleep(2)
     print(pyautogui.position())
 
     tempo() 
@@ -156,12 +169,3 @@ if __name__ == "__main__":
 
 
 
-
-# pesquisas #
-#tqdm documents
-# https://tqdm.github.io/docs/tqdm/
-
-#azure
-# https://learn.microsoft.com/en-us/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development?view=sql-server-ver17&tabs=windows
-# https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-python?view=azuresql
-    
