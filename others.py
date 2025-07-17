@@ -49,7 +49,7 @@ def relatorio():
 # funções (somente tirar o '#' para ativar)
 #
 # localizar()
-# forjar()
+forjar()
 # posição_mouse()
 # relatorio()
 
