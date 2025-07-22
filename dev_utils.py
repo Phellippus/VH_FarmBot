@@ -1,18 +1,12 @@
-#Para testes de código
+#Para testes de código 
 
 from time import sleep
 import time
 import pyautogui
 from tqdm import tqdm
 
-sleep(2)
 
-# craft = pyautogui.locateOnScreen('image/forja.png', confidence=0.8)
-# print(craft)
-# craft_centro = pyautogui.center(craft)
-# pyautogui.moveTo(craft_centro, duration=0.5)
-
-# mouse posição atual (2 segundos após executar)
+# mouse posição atual em X e Y(2 segundos após executar)
 def posição_mouse():
     print(pyautogui.position())
 
@@ -29,7 +23,6 @@ def forjar():
             print(f'Forja não encontrada, tentando novamente... {e}')
             sleep(2)
             
-
 #encontrar algo na tela (2 segundos após executar)
 def localizar():
     try:
@@ -54,7 +47,7 @@ def relatorio():
 # funções (somente tirar o '#' para ativar)
 #
 # localizar()
-forjar()
+# forjar()
 # posição_mouse()
 # relatorio()
 
@@ -67,9 +60,8 @@ forjar()
 
 
 
- #adicionar tqdm no time.sleep  ✅
-#finalizar database azure do bot.py e rodar algumas vezes
-#fazer usar ML pra fazer previsão do tempo total economizado e mostrar oq da pra fazer neste tempo
+# adicionar tqdm no time.sleep  ✅
+#fazer usar ML pra fazer previsão do tempo total economizado
 #fazer um relatorio com análise de dados (tratatamento de dados com pandas etc)
 # projeto finalizado
 
@@ -90,15 +82,6 @@ forjar()
 
 # else:
 #     print('não encontrado')
-
-
-
-
-
-
-
-
-
 
 
 
