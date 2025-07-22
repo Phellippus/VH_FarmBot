@@ -1,7 +1,6 @@
 #Para testes de código 
 
 from time import sleep
-import time
 import pyautogui
 from tqdm import tqdm
 
