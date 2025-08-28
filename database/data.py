@@ -1,11 +1,10 @@
 import sqlite3
 
 #cria arquivo.bd, registra e conecta
-##
-# 🛑 em 'conn = sqlite3...' Coloque o caminho para o dados_bot.bd
+#
 def save_sqlite(
     data_execucao, data_fim, duracao_minutos, qtd_reparadores, ferramentas_concertadas,relatorio_guardar):
-    conn = sqlite3.connect('C:/Users/seu_usuario/Documentos/projetos/dados_bot.db')
+    conn = sqlite3.connect('../database/dados_bot.db')
     cursor = conn.cursor()
 
 # cria tabela principal 
@@ -35,4 +34,3 @@ def save_sqlite(
 # salva e fecha
     conn.commit()
     conn.close()
-    
